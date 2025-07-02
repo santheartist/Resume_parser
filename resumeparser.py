@@ -2,13 +2,12 @@ import os
 import json
 import openai
 
-# ✅ Load API key from environment variable
+# ✅ Use new OpenAI SDK format
 api_key = os.environ.get("OPENAI_API_KEY")
 if not api_key:
     raise RuntimeError("❌ OPENAI_API_KEY environment variable is missing.")
 
-# ✅ Initialize OpenAI client
-client = openai.OpenAI(api_key=api_key)
+openai.api_key = api_key
 
 def ats_extractor(resume_text, target_role):
     extract_prompt = '''
@@ -24,7 +23,7 @@ def ats_extractor(resume_text, target_role):
     Return only a clean, structured JSON with this data.
     '''
 
-    extract_response = client.chat.completions.create(
+    extract_response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": extract_prompt},
@@ -62,7 +61,7 @@ def ats_extractor(resume_text, target_role):
     }}
     '''
 
-    eval_response = client.chat.completions.create(
+    eval_response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a senior recruiter assistant."},
