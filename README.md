@@ -1,43 +1,130 @@
-# Resume Parser App (Gen AI + Flask)
+# 💼 Resume Parser App (Flask + OpenAI + Bootstrap)
 
-### Objective
+## 🧠 Objective  
+The Resume Parser App allows recruiters and job seekers to evaluate resumes using AI. Upload a PDF resume and specify a target profession (e.g., "Backend Developer") — the app will parse the resume and assess the candidate using OpenAI GPT-3.5.  
+It provides a detailed breakdown of:  
+- Contact information  
+- Work experience  
+- Skills (technical + soft)  
+- An AI-powered evaluation (score, recommendation, proceed/no decision)  
+> Built with Flask, OpenAI, Bootstrap 5, and modern UI/UX design.
 
-Creating a resume parser app using Flask is a great way to help job seekers test the ATS (Applicant Tracking System) friendliness of their resumes. The app allows users to upload their resumes in PDF format, which are then parsed to extract various pieces of information such as full name, email ID, GitHub portfolio, LinkedIn ID, employment details, technical skills, and soft skills. The extracted information is then presented in JSON format, providing users with valuable insights into the effectiveness of their resumes.
+## 📸 Sneak Peek  
+*(Include screenshots in `/screenshots` folder like `1.png`)*
 
-To build such an app, you can leverage various tools and libraries, including Python, Flask, Pyresparser, pdfminer.six, docx2txt, and NLP (natural language processing) libraries such as nltk and spacy. These tools enable the extraction of essential information from resumes in PDF and DOCx formats, making the process automated and efficient.
+## 🚀 Features  
+- Upload PDF resumes for analysis  
+- Specify a target profession for role-based evaluation  
+- AI-powered extraction of:  
+  - Full Name, Email, GitHub, LinkedIn  
+  - Employment History  
+  - Technical and Soft Skills  
+- Candidate Evaluation:  
+  - Score out of 10  
+  - Short recommendation  
+  - Proceed or not  
+- Light/Dark Mode Toggle with colorful 🌞 / 🌙 icons  
+- Clean, structured JSON-like output  
+- Responsive Bootstrap 5 UI with icons and transitions
 
-The app's functionality aligns with the growing need for streamlined recruitment processes and the increasing reliance on technology to evaluate and process job applications. By providing users with a detailed analysis of their resumes, the app empowers job seekers to optimize their resumes for better visibility and compatibility with ATS.
+## ⚙️ Tech Stack  
+| Technology      | Use                          |
+|----------------|-------------------------------|
+| Python 3.x      | Core backend logic           |
+| Flask           | Lightweight web framework    |
+| OpenAI GPT-3.5  | Resume parsing + evaluation  |
+| PyPDF           | PDF text extraction          |
+| Bootstrap 5     | Responsive frontend styling  |
+| YAML            | API key configuration        |
+| Jinja2          | HTML templating with Flask   |
 
-### Sneak Peak of the App
-![image](https://github.com/pik1989/Resume-Parser-OpenAI/assets/34673684/5d206207-1b25-4dbe-8e11-add701b632e7)
+## 📦 Installation & Setup  
+Clone the Repository:
+```bash
+git clone https://github.com/your-username/resume-parser-ai.git
+cd resume-parser-ai
+```
 
-#### Overview: 
-This App is created for job seekers to test whether their resumes are ATS friendly or not, if our App is able to parse your details and show it, then assume that everything is good.
+Set Up Virtual Environment:
+```bash
+python -m venv venv
+# For macOS/Linux
+source venv/bin/activate
+# For Windows
+venv\Scripts\activate
+```
 
-#### Features: 
-Ability to extract specific information from resumes, the use of JSON format for presenting the extracted data, and the integration of various libraries and tools for parsing resumes.
+Install Dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-#### Installation: 
-Run the pip install requirements.txt to install and set up the app, including any dependencies and prerequisites.
+Add Your OpenAI API Key:  
+Create a file named `config.yaml` in the root directory with the following content:
+```yaml
+OPENAI_API_KEY: "your-openai-api-key-here"
+```
 
-#### Usage: 
-Just upload your resume in pdf format, and see for yourself :)
+You can get your API key from: https://platform.openai.com/account/api-keys
 
+Run the Flask App:
+```bash
+python app.py
+```
 
-##### Running the program
+Open in your browser:  
+Visit http://localhost:8000
 
-1. Clone the repository to your local machine
-2. Navigate to the project directory
-3. Install all the required libraries (just run pip install -r /path/to/requirements.txt)
-4. Provide your Open AI API key in the .yaml file
-5. Run the following command to start the chatbot -
+## 🧪 How It Works  
+1. Upload a PDF resume  
+2. Enter a target profession (e.g., “Data Scientist”)  
+3. AI extracts structured resume data  
+4. AI evaluates if the candidate fits the role  
+5. You receive:  
+   - Parsed fields with icons  
+   - Score out of 10  
+   - Recommendation  
+   - Proceed decision
 
-    ```
-    python app.py
-    ```
+## 📁 Project Structure  
+```
+resume-parser-ai/
+├── app.py                # Main Flask application
+├── resumeparser.py       # OpenAI resume parsing & evaluation logic
+├── templates/
+│   └── index.html        # Bootstrap UI template with light/dark theme
+├── static/
+│   └── logo.png          # App logo
+├── screenshots/
+│   └── 1.png             # Screenshot for README
+├── config.yaml           # Your OpenAI API Key (you create this)
+├── requirements.txt      # Required Python packages
+└── README.md             # This file 📄
+```
 
-    ```
-    Go to: https://localhost:8000
-    ```
-    
-Overall, the development of a resume parser app using Flask represents a significant advancement in leveraging technology to support job seekers in optimizing their resumes for the modern recruitment landscape. This app aligns with the increasing demand for efficient and technology-driven solutions in the job application process, ultimately benefiting both job seekers and recruiters.
+## 🙌 Contributing  
+Contributions are welcome! To contribute:  
+- Fork the project  
+- Create a new branch:  
+```bash
+git checkout -b feature/your-feature
+```
+- Commit your changes  
+- Open a Pull Request 🚀  
+
+Ideas to improve:  
+- Add .docx resume support  
+- Add "Download as JSON" option  
+- Evaluate multiple roles  
+- Email feedback to the user
+
+## 📄 License  
+This project is licensed under the **MIT License**.  
+You are free to use, distribute, and modify this project for personal or commercial use.
+
+## 🙏 Credits  
+- [OpenAI GPT-3.5](https://platform.openai.com/)  
+- [Bootstrap 5](https://getbootstrap.com/)  
+- [Flask](https://flask.palletsprojects.com/)  
+- [PyPDF](https://pypi.org/project/pypdf/)  
+- [Bootstrap Icons](https://icons.getbootstrap.com/)
