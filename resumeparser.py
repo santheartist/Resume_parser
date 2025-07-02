@@ -1,12 +1,14 @@
-import openai
-import yaml
+import os
 import json
+import openai
 
-CONFIG_PATH = "config.yaml"
-with open(CONFIG_PATH) as file:
-    config = yaml.safe_load(file)
+# ✅ Load API key from environment variable
+api_key = os.environ.get("OPENAI_API_KEY")
+if not api_key:
+    raise RuntimeError("❌ OPENAI_API_KEY environment variable is missing.")
 
-client = openai.OpenAI(api_key=config.get("OPENAI_API_KEY") or config.get("openai", {}).get("api_key"))
+# ✅ Initialize OpenAI client
+client = openai.OpenAI(api_key=api_key)
 
 def ats_extractor(resume_text, target_role):
     extract_prompt = '''
@@ -52,7 +54,8 @@ def ats_extractor(resume_text, target_role):
     3. Give a short recommendation.
     4. State whether to proceed with the candidate or not.
 
-    Return in JSON: {{
+    Return in JSON:
+    {{
       "score": 8,
       "recommendation": "...",
       "proceed": "Yes" or "No"
