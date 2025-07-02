@@ -13,6 +13,9 @@ It provides a detailed breakdown of:
 ![App Screenshot](screenshots/1.png)
 ![App Screenshot](screenshots/2.png)
 
+## 📸 Deployment
+- Click on the following URL: [App](https://resume-parser-tw8t.onrender.com)
+
 
 ## 🚀 Features  
 - Upload PDF resumes for analysis  
