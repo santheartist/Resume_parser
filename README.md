@@ -10,7 +10,9 @@ It provides a detailed breakdown of:
 > Built with Flask, OpenAI, Bootstrap 5, and modern UI/UX design.
 
 ## 📸 Sneak Peek  
-*(Include screenshots in `/screenshots` folder like `1.png`)*
+![App Screenshot](screenshots/1.png)
+![App Screenshot](screenshots/2.png)
+
 
 ## 🚀 Features  
 - Upload PDF resumes for analysis  
